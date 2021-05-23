@@ -1,0 +1,35 @@
+﻿@page "/client/add"
+@page "/client/edit/{cliID}"
+
+
+<h1>@Title Client</h1>
+<hr />
+
+<EditForm Model="@cli">
+    <DataAnnotationsValidator />
+    @if (isVisible)
+    {
+        <div class="form-group row">
+            <label class="control-label col-md-12">Id</label>
+            <div class="col-md-4">
+                <input class="form-control" @bind="cli.Id" />
+            </div>
+            <ValidationMessage For="@(()=>cli.Id)" />
+        </div>
+    }
+    <div class="form-group row">
+        <label class="control-label col-md-12">Name</label>
+        <div class="col-md-4">
+            <input class="form-control" @bind="cli.FirstName" />
+        </div>
+        <ValidationMessage For="@(()=>cli.FirstName)" />
+    </div>
+    <div class="form-group">
+        <button class="btn btn-primary" @onclick="SaveClient">Save</button>
+
+    </div>
+</EditForm>
+<div>
+    <button class="btn btn-light" @onclick="@(async () => await Cancel())">Cancel</button>
+</div>
+

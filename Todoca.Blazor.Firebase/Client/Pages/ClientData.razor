@@ -1,0 +1,61 @@
+﻿@page "/clientrecords"
+
+
+<h1>Client Data</h1>
+<p>CRUD operation using Blazor and Google Cloud FireStore</p>
+
+<div class="row">
+    <div class="col-md-4">
+        <a href="/client/add" class="btn btn-primary" role="button">
+            <i class="fa fa-user-plus" />
+            Add Client
+        </a>
+    </div>
+    <div class="input-group col-md-4 offset-md-4">
+        <input type="text" class="form-control" placeholder="Search Client by First Name" @bind="SearchString" />
+        <div class="input-group-append">
+            <button class="btn btn-info" @onclick="SearchClient">
+                <i class="fa fa-search" />
+            </button>
+        </div>
+    </div>
+</div>
+<br />
+
+@if (cliList == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>FirsName</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var cli in cliList)
+            {
+                <tr>
+                    <td>@cli.Id</td>
+                    <td>@cli.FirstName</td>
+                    <td>
+                        <a href="/client/edit/@cli.Id" class="btn btn-alert-btn-outline-dark" role="button">
+                            <i class="fa fa-pencil-square-o" />
+                            Edit
+                        </a>
+                        <a href="/client/delete/@cli.Id" class="btn btn-alert-btn-outline-danger" role="button">
+                            <i class="fa fa-trash-o" />
+                            Delete
+                        </a>
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+
+
+    </table>
+}

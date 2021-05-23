@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31313.381
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Todoca.Blazor.Firebase.Server", "Todoca.Blazor.Firebase\Server\Todoca.Blazor.Firebase.Server.csproj", "{7CE1E2EA-1062-463D-A8E0-510A95656F75}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Todoca.Blazor.Firebase.Client", "Todoca.Blazor.Firebase\Client\Todoca.Blazor.Firebase.Client.csproj", "{0EDE3621-0FAA-414B-9D07-20C39362B115}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Todoca.Blazor.Firebase.Shared", "Todoca.Blazor.Firebase\Shared\Todoca.Blazor.Firebase.Shared.csproj", "{BC62A84A-4EDB-4685-82F0-EC26E0011233}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7CE1E2EA-1062-463D-A8E0-510A95656F75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CE1E2EA-1062-463D-A8E0-510A95656F75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CE1E2EA-1062-463D-A8E0-510A95656F75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CE1E2EA-1062-463D-A8E0-510A95656F75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0EDE3621-0FAA-414B-9D07-20C39362B115}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EDE3621-0FAA-414B-9D07-20C39362B115}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EDE3621-0FAA-414B-9D07-20C39362B115}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EDE3621-0FAA-414B-9D07-20C39362B115}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC62A84A-4EDB-4685-82F0-EC26E0011233}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC62A84A-4EDB-4685-82F0-EC26E0011233}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC62A84A-4EDB-4685-82F0-EC26E0011233}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC62A84A-4EDB-4685-82F0-EC26E0011233}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7EA40F1A-18CF-4944-BA14-8D38698FC03F}
+	EndGlobalSection
+EndGlobal

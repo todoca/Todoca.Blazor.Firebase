@@ -1,0 +1,24 @@
+﻿@page "/client/delete/{cliID}"
+
+
+<h1>@Title Client</h1>
+<hr />
+
+<EditForm Model="@cli" OnValidSubmit="DeleteClients">
+    <div class="form-group row">
+        <label class="control-label col-md-12">Id</label>
+        <div class="col-md-4">
+            <input class="form-control" @bind="cli.Id" disabled />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="control-label col-md-12">Name</label>
+        <div class="col-md-4">
+            <input class="form-control" @bind="cli.FirstName" disabled />
+        </div>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-danger" type="submit">Delete Confirmation</button>
+        <button class="btn btn-light" @onclick="Cancel">Cancel</button>
+    </div>
+</EditForm>

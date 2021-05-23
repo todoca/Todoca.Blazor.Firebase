@@ -51,7 +51,7 @@ namespace Todoca.Blazor.Firebase.Client.Pages
             Cancel();
         }
 
-        async Task Cancel()
+        void Cancel()
         {
             urlNavigationManager.NavigateTo("/clientrecords", true);
         }

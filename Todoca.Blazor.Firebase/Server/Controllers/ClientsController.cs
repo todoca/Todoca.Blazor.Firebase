@@ -12,32 +12,23 @@ namespace Todoca.Blazor.Firebase.Server.Controllers
         ClientDataAccessLayer objClient = new ClientDataAccessLayer();
 
         [HttpGet]
-        public Task<List<Shared.Models.Client>> GetClients()
-        {
-            return objClient.GetAllClients();
-        }
+        public Task<List<Shared.Models.Client>> GetClients() => 
+            objClient.GetAllClients();
 
         [HttpGet("{id}")]
-        public Task<Shared.Models.Client> GetClient(string id)
-        {
-            return objClient.GetClientData(id);
-        }
+        public Task<Shared.Models.Client> GetClient(string id) => 
+            objClient.GetClientData(id);
 
         [HttpPost]
-        public void PostClient([FromBody] Shared.Models.Client client)
-        {
+        public void PostClient([FromBody] Shared.Models.Client client) =>
             objClient.AddClient(client);
-        }
+        
         [HttpPut]
-        public void PutClient([FromBody] Shared.Models.Client client)
-        {
+        public void PutClient([FromBody] Shared.Models.Client client) =>
             objClient.UpdateClient(client);
-        }
 
         [HttpDelete("{id}")]
-        public void DeletClient(string id)
-        {
+        public void DeletClient(string id) =>
             objClient.DeleteClient(id);
-        }
     }
 }

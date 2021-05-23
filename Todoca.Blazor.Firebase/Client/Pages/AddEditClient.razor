@@ -26,10 +26,9 @@
     </div>
     <div class="form-group">
         <button class="btn btn-primary" @onclick="SaveClient">Save</button>
+        <button class="btn btn-light" @onclick="Cancel">Cancel</button>
 
     </div>
 </EditForm>
-<div>
-    <button class="btn btn-light" @onclick="@(async () => await Cancel())">Cancel</button>
-</div>
+
 

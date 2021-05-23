@@ -14,7 +14,6 @@ namespace Todoca.Blazor.Firebase.Server.Firebase.DataAccess
         public ClientDataAccessLayer()
         {
             string filePath = @"..\Server\FireBase\todocadb.json";
-            //filePath"../todocadb.json";
             Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", filePath);
             projectId = "todocadb";
             firestoreDb = FirestoreDb.Create(projectId);
@@ -25,7 +24,7 @@ namespace Todoca.Blazor.Firebase.Server.Firebase.DataAccess
             {
                 Query clientQuery = firestoreDb.Collection("Clients");
                 QuerySnapshot clientQuerySnapshot = await clientQuery.GetSnapshotAsync();
-                List<Shared.Models.Client> lstClient = new List<Shared.Models.Client>();
+                List<Shared.Models.Client> listClients = new List<Shared.Models.Client>();
                 foreach (DocumentSnapshot documentSnapshot in clientQuerySnapshot.Documents)
                 {
                     if (documentSnapshot.Exists)
@@ -33,13 +32,15 @@ namespace Todoca.Blazor.Firebase.Server.Firebase.DataAccess
 
                         Dictionary<string, object> client = documentSnapshot.ToDictionary();
                         string json = JsonConvert.SerializeObject(client);
-                        Shared.Models.Client newClient = JsonConvert.DeserializeObject<Shared.Models.Client>(json);
+                        Shared.Models.Client newClient =
+                            JsonConvert.DeserializeObject<Shared.Models.Client>(json);
                         newClient.Id = documentSnapshot.Id;
                         newClient.Date = documentSnapshot.CreateTime.Value.ToDateTimeOffset();
-                        lstClient.Add(newClient);
+                        listClients.Add(newClient);
                     }
                 }
-                List<Shared.Models.Client> storedClientList = lstClient.OrderBy(x => x.Date).ToList();
+                List<Shared.Models.Client> storedClientList =
+                    listClients.OrderBy(x => x.Date).ToList();
                 return storedClientList;
             }
             catch (Exception)
@@ -60,7 +61,6 @@ namespace Todoca.Blazor.Firebase.Server.Firebase.DataAccess
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
@@ -68,12 +68,12 @@ namespace Todoca.Blazor.Firebase.Server.Firebase.DataAccess
         {
             try
             {
-                DocumentReference empRef = firestoreDb.Collection("Clients").Document(client.Id);
-                await empRef.SetAsync(client, SetOptions.MergeAll);
+                DocumentReference updateclient = 
+                    firestoreDb.Collection("Clients").Document(client.Id);
+                await updateclient.SetAsync(client, SetOptions.Overwrite);
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
@@ -87,20 +87,17 @@ namespace Todoca.Blazor.Firebase.Server.Firebase.DataAccess
                 {
                     Dictionary<string, object> client = snapshot.ToDictionary();
                     string json = JsonConvert.SerializeObject(client);
-                    Shared.Models.Client clientById = JsonConvert.DeserializeObject<Shared.Models.Client>(json);
+                    Shared.Models.Client clientById = 
+                        JsonConvert.DeserializeObject<Shared.Models.Client>(json);
                     clientById.Id = snapshot.Id;
                     clientById.Date = snapshot.CreateTime.Value.ToDateTimeOffset();
                     return clientById;
                 }
                 else
-                {
-
                     return new Shared.Models.Client();
-                }
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
